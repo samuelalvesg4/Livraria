@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useCarrinho } from '../context/CarrinhoContext' // Importe o hook do carrinho
 
 import '../styles/header.css'
 
@@ -8,6 +9,12 @@ import carrinhob from '../assets/images/carrinhob.png'
 
 
 function Header(){
+    // Use o hook para obter o estado do carrinho
+    const { itensCarrinho } = useCarrinho();
+
+    // Calcule a quantidade total de itens no carrinho
+    const totalItens = itensCarrinho.reduce((acc, item) => acc + item.quantidade, 0);
+
     return(
     <header>
         <div className="search">
@@ -41,6 +48,8 @@ function Header(){
                     <div className="cart">
                         <Link to={'/carrinho'}>
                             <img src={carrinhob} alt="icone do carrinho de compras" />
+                            {/* Exibe a quantidade de itens apenas se for maior que 0 */}
+                            {totalItens > 0 && <span className="cart-item-count">{totalItens}</span>}
                         </Link>
                     </div>
                     <div className="account">
