@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {HashRouter, Routes, Route} from 'react-router-dom'
 
 import './styles/reset.css'
 import './styles/global.css'
@@ -9,14 +9,14 @@ import CarrinhoPage from './pages/carrinho'
 
 function App(){
   return(
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route element={<Layout/>}>
           <Route path='/' element={<Home />} />
           <Route path='/carrinho' element={<CarrinhoPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
