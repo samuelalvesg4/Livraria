@@ -123,18 +123,10 @@ form input {
     display: flex;      /* Para ajudar no alinhamento do conteúdo interno se houver outros elementos */
     align-items: center; /* Alinha o ícone e o contador verticalmente */
     justify-content: center; /* Centraliza horizontalmente se desejar */
-    width: 40px; /* Exemplo: ajuste a largura do container do carrinho conforme necessário */
-    height: 40px; /* Exemplo: ajuste a altura do container do carrinho conforme necessário */
-    padding: 5px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
 }
 
 .cart-item-count {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
     top: -8px;      /* Move para cima */
     right: -8px;    /* Move para a direita (ajuste conforme o design do seu ícone) */
     background-color: red; /* Cor de fundo para a bolha do contador */
@@ -148,6 +140,15 @@ form input {
     line-height: 1; /* Ajusta a altura da linha para centralizar o número */
     z-index: 10; /* Garante que fique acima de outros elementos */
 }
+
+.cartnumber img {
+    width: 20px; /* Defina o tamanho exato da imagem aqui */
+    height: 20px;
+    padding: 5px; /* O padding deve ser na imagem se quiser espaço em volta dela */
+    border-radius: 8px; /* O border-radius deve ser na imagem */
+    transition: background-color 0.3s ease; /* E a transição no hover dela */
+}
+
 .cartnumber img:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.16);
