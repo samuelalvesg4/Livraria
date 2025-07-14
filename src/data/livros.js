@@ -1,5 +1,3 @@
-// data/livros.js
-
 const Livros = [
     {
         id:'livro-1',
