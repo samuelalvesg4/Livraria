@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/carrinho.css';
 import { useCarrinho } from '../context/CarrinhoContext';
-import LivrosData from '../data/livros';
+import LivrosData from '../data/livros'; // <-- ESTA É A IMPORTAÇÃO CORRETA
 
-function CarrinhoPage() { // INÍCIO DA FUNÇÃO CARRINHOPAGE
+function CarrinhoPage() {
     const { itensCarrinho, setItensCarrinho } = useCarrinho();
 
     const itensCompletos = itensCarrinho.map(carrinhoItem => {
@@ -52,9 +52,6 @@ function CarrinhoPage() { // INÍCIO DA FUNÇÃO CARRINHOPAGE
             }
         });
     }
-    // FIM DA FUNÇÃO decrease -- AQUI COMEÇA O BLOCO DE RENDERIZAÇÃO DA FUNÇÃO CarrinhoPage
-    // Não havia uma chave de fechamento para a função CarrinhoPage antes
-    // e o código a seguir estava "solto".
 
     const CarrinhoMapped = itensCompletos.map(el => (
         <div className="carrinhoItem" key={el.id}>
@@ -68,7 +65,6 @@ function CarrinhoPage() { // INÍCIO DA FUNÇÃO CARRINHOPAGE
         </div>
     ));
 
-    // Lógica para mostrar mensagem de carrinho vazio e o retorno JSX
     if (itensCarrinho.length === 0) {
         return (
             <p className='noItemWarning'>Nenhum item no carrinho!</p>
@@ -84,7 +80,7 @@ function CarrinhoPage() { // INÍCIO DA FUNÇÃO CARRINHOPAGE
             </>
         );
     }
-} // FIM DA FUNÇÃO CARRINHOPAGE (AGORA FECHADA CORRETAMENTE)
+}
 
 export default CarrinhoPage;
     }
