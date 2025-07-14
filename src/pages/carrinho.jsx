@@ -57,36 +57,37 @@ function CarrinhoPage() { // Mudei o nome da função para CarrinhoPage, se ela 
                 );
             }
         });
-    }
+    });
+}
 
-    const CarrinhoMapped = itensCompletos.map(el => (
-        <div className="carrinhoItem" key={el.id}>
-            <span>{el.titulo}</span>
-            <span>R$ {el.preco.toFixed(2).replace('.', ',')}</span> {/* Formatação do preço */}
-            <div className="quantidadeWrapper">
-                <button onClick={() => decrease(el)}>-</button>
-                <span className='quantidade'>{el.quantidade}</span>
-                <button onClick={() => increase(el)}>+</button>
-            </div>
+const CarrinhoMapped = itensCompletos.map(el => (
+    <div className="carrinhoItem" key={el.id}>
+        <span>{el.titulo}</span>
+        <span>R$ {el.preco.toFixed(2).replace('.', ',')}</span> {/* Formatação do preço */}
+        <div className="quantidadeWrapper">
+            <button onClick={() => decrease(el)}>-</button>
+            <span className='quantidade'>{el.quantidade}</span>
+            <button onClick={() => increase(el)}>+</button>
         </div>
-    ));
+    </div>
+));
 
-    // Lógica para mostrar mensagem de carrinho vazio
-    if (itensCarrinho.length === 0) {
-        return (
-            <p className='noItemWarning'>Nenhum item no carrinho!</p>
-        );
-    } else {
-        return (
-            <>
-                <div className="carrinhoItensContainer">{CarrinhoMapped}</div>
-                <div className="compra-container">
-                    <span className='total'>TOTAL: R$ {total.toFixed(2).replace('.', ',')}</span> {/* Formatação do total */}
-                    <button onClick={comprar}>Comprar</button>
-                </div>
-            </>
-        );
-    }
+// Lógica para mostrar mensagem de carrinho vazio
+if (itensCarrinho.length === 0) {
+    return (
+        <p className='noItemWarning'>Nenhum item no carrinho!</p>
+    );
+} else {
+    return (
+        <>
+            <div className="carrinhoItensContainer">{CarrinhoMapped}</div>
+            <div className="compra-container">
+                <span className='total'>TOTAL: R$ {total.toFixed(2).replace('.', ',')}</span> {/* Formatação do total */}
+                <button onClick={comprar}>Comprar</button>
+            </div>
+        </>
+    );
+}
 }
 
 export default CarrinhoPage; // Exporte CarrinhoPage
