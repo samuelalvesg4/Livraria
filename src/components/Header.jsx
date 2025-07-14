@@ -45,10 +45,10 @@ function Header(){
                     </div>
                 </form>
                 <div className="right-nav">
-                    <div className="cartnumber">
+                    <div className="cartnumber"> {/* ESTA LINHA DEVE SER className="cartnumber" */}
                         <Link to={'/carrinho'}>
+                            {/* ESTAS DUAS LINHAS SÃO CRUCIAIS E DEVEM ESTAR AQUI */}
                             <img src={carrinhob} alt="icone do carrinho de compras" />
-                            {/* Exibe a quantidade de itens apenas se for maior que 0 */}
                             {totalItens > 0 && <span className="cart-item-count">{totalItens}</span>}
                         </Link>
                     </div>
