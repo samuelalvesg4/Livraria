@@ -131,7 +131,10 @@ form input {
 }
 
 .cart-item-count {
-    position: absolute;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: -8px;      /* Move para cima */
     right: -8px;    /* Move para a direita (ajuste conforme o design do seu ícone) */
     background-color: red; /* Cor de fundo para a bolha do contador */
@@ -145,7 +148,7 @@ form input {
     line-height: 1; /* Ajusta a altura da linha para centralizar o número */
     z-index: 10; /* Garante que fique acima de outros elementos */
 }
-.cart img:hover {
+.cartnumber img:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.16);
 }
