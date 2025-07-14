@@ -1,11 +1,18 @@
-import React from 'react'; // É uma boa prática importar React, mesmo que não usado diretamente no JSX aqui
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import { CarrinhoProvider } from './context/CarrinhoContext.jsx'; // ESSA LINHA É CRUCIAL
+import React from 'react'; // É uma boa prática importar React para arquivos JSX
+import ReactDOM from 'react-dom/client'; // Importe createRoot de react-dom/client
+import App from './App.jsx'; // Importe seu componente principal App
+import { CarrinhoProvider } from './context/CarrinhoContext.jsx'; // Importe o CarrinhoProvider
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+// Encontre o elemento 'root' no seu index.html
+const rootElement = document.getElementById('root');
+
+// Crie uma raiz de renderização para o React
+const root = ReactDOM.createRoot(rootElement);
+
+// Renderize sua aplicação React dentro do StrictMode e do CarrinhoProvider
+root.render(
   <React.StrictMode>
-    <CarrinhoProvider> {/* ESSA LINHA E A FECHAMENTO SÃO CRUCIAIS */}
+    <CarrinhoProvider>
       <App />
     </CarrinhoProvider>
   </React.StrictMode>,
