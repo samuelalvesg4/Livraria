@@ -125,6 +125,18 @@ form input {
     justify-content: center; /* Centraliza horizontalmente se desejar */
 }
 
+.cartnumber a { /* Seleciona o Link dentro de .cartnumber */
+    position: relative; /* Torna o Link um contêiner de posicionamento para o span */
+    display: block;     /* Ou display: inline-block; para que o Link se comporte como um bloco */
+    width: 100%;        /* O Link ocupa toda a largura do seu pai (.cartnumber) */
+    height: 100%;       /* O Link ocupa toda a altura do seu pai (.cartnumber) */
+    display: flex; /* Para centralizar o conteúdo do link, se o ícone estiver ali */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Para remover sublinhado padrão do link */
+    color: inherit; /* Para herdar a cor do texto */
+}
+
 .cart-item-count {
     position: absolute;
     top: -8px;      /* Move para cima */
