@@ -45,7 +45,7 @@ function Header(){
                     </div>
                 </form>
                 <div className="right-nav">
-                    <div className="cart">
+                    <div className="cartnumber">
                         <Link to={'/carrinho'}>
                             <img src={carrinhob} alt="icone do carrinho de compras" />
                             {/* Exibe a quantidade de itens apenas se for maior que 0 */}
