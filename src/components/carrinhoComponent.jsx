@@ -1,29 +1,28 @@
-import React from 'react';
-import '../styles/carrinho.css'
-import { useCarrinho } from '../context/CarrinhoContext';
-import LivrosData from '../data/livros'
+import React from 'react'; // Importar React é uma boa prática
+import '../styles/carrinho.css';
+import { useCarrinho } from '../context/CarrinhoContext'; // Importar o hook do carrinho
+import LivrosData from '../data/livros'; // Importar a lista completa de livros para obter detalhes
 
-function CarrinhoComponent(){
-    const { itensCarrinho, setItensCarrinho, } = useCarrinho();
-           const itensCompletos = itensCarrinho.map(carrinhoItem => {
-        const livroDetalhes = LivrosData.find(livro => livro.id === carrinhoItem.id);
-        return {
+function CarrinhoComponent() {
+    // Usar o hook para obter o estado do carrinho e a função setItensCarrinho
+    const { itensCarrinho, setItensCarrinho } = useCarrinho();
+
     // Mapear os itens do carrinho para incluir os detalhes completos dos livros
     const itensCompletos = itensCarrinho.map(carrinhoItem => {
         const livroDetalhes = LivrosData.find(livro => livro.id === carrinhoItem.id);
+        // Retorna o item com detalhes completos e a quantidade do carrinho
         return {
-            ...livroDetalhes, // Título, preço, categoria
-            quantidade: carrinhoItem.quantidade // Quantidade do carrinho
+            ...livroDetalhes,
+            quantidade: carrinhoItem.quantidade
         };
-    }).filter(item => item.id); // Filtrar para garantir que só temos itens válidos (caso um ID não seja encontrado)
+    }).filter(item => item.id); // Garante que só temos itens válidos (se um ID não for encontrado em LivrosData)
 
     // Calcular o total
     let total = itensCompletos.reduce((acc, item) => acc + (item.preco * item.quantidade || 0), 0);
 
-    // Funções de manipulação do carrinho (serão adicionadas ao contexto futuramente)
-    // Por enquanto, vamos adaptá-las para usar o setItensCarrinho do contexto
+    // Funções de manipulação do carrinho (agora usam o setItensCarrinho do contexto)
     function comprar() {
-        setItensCarrinho([]); // Limpa o estado do carrinho no contexto
+        setItensCarrinho([]); // Limpa o estado do carrinho
         alert('Compra Realizada!');
     }
 
@@ -71,7 +70,7 @@ function CarrinhoComponent(){
     ));
 
     // Lógica para mostrar mensagem de carrinho vazio
-    if (itensCarrinho.length === 0) { // Usar o length do estado do carrinho, não de LivrosData
+    if (itensCarrinho.length === 0) { // Usar o length do estado do carrinho
         return (
             <p className='noItemWarning'>Nenhum item no carrinho!</p>
         );
