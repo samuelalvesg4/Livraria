@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Dispara o workflow sempre que houver um push na branch 'main'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Usa o sistema operacional Ubuntu para rodar o job
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Clona o seu repositório
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use uma versão LTS do Node.js
+
+      - name: Install dependencies
+        run: npm install # Instala as dependências do seu projeto
+
+      - name: Build project
+        run: npm run build # Roda o comando de build do Vite para criar a pasta 'dist'
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3 # Uma Action popular para deploy no GH Pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Token de autenticação fornecido pelo GitHub
+          publish_dir: ./dist # Pasta que será publicada (a pasta 'dist' do seu build)
+          # publish_branch: gh-pages # Descomente se sua branch de deploy for diferente de 'gh-pages'
