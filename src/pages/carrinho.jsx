@@ -87,3 +87,7 @@ function CarrinhoPage() { // INÍCIO DA FUNÇÃO CARRINHOPAGE
 } // FIM DA FUNÇÃO CARRINHOPAGE (AGORA FECHADA CORRETAMENTE)
 
 export default CarrinhoPage;
+    }
+} // FIM DA FUNÇÃO CARRINHOPAGE (AGORA FECHADA CORRETAMENTE)
+
+export default CarrinhoPage;
