@@ -118,14 +118,6 @@ form input {
     padding: 5px;
 }
 
-.cart img {
-    width: 70px;
-    height: 70px;
-    padding: 5px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
 .cartnumber {
     position: relative; /* Isso é crucial para posicionar o span 'absolute' dentro dele */
     display: flex;      /* Para ajudar no alinhamento do conteúdo interno se houver outros elementos */
@@ -133,6 +125,9 @@ form input {
     justify-content: center; /* Centraliza horizontalmente se desejar */
     width: 40px; /* Exemplo: ajuste a largura do container do carrinho conforme necessário */
     height: 40px; /* Exemplo: ajuste a altura do container do carrinho conforme necessário */
+    padding: 5px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
 .cart-item-count {
