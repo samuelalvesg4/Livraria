@@ -142,8 +142,8 @@ form input {
 }
 
 .cartnumber img {
-    width: 20px; /* Defina o tamanho exato da imagem aqui */
-    height: 20px;
+    width: 50px; /* Defina o tamanho exato da imagem aqui */
+    height: 50px;
     padding: 5px; /* O padding deve ser na imagem se quiser espaço em volta dela */
     border-radius: 8px; /* O border-radius deve ser na imagem */
     transition: background-color 0.3s ease; /* E a transição no hover dela */
